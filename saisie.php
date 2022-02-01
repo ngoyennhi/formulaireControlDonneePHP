@@ -8,16 +8,22 @@
 </head>
 <body>
     <?php
+
     $arrSaisi = filter_input(
         INPUT_POST,
         'saisie',
         FILTER_DEFAULT,
         FILTER_REQUIRE_ARRAY
     );
+
     var_dump($_POST); //pour vérifier ce que on a saisi sur la formlulaire
     echo '<br>';
+
     if(!empty($arrSaisi)){
-        //recuperer les composantes de la date saisie:
+
+    //     // Partie 1: Date de naissance_______________________ 
+    //     // Validité d’une date - Plage de valeurs
+    //     //recuperer les composantes de la date saisie:
         $date_de_naissance = trim($arrSaisi['date_de_naissance']);
          // Solution 1: Avec fonction explode:
         $jma = explode('/',$date_de_naissance);
@@ -49,8 +55,10 @@
                 }; 
             };
         } 
-        else {echo 'Date de naissance : inconnue';};
-    } else { echo 'Donnée inconnues';};
+        else {echo 'Date de naissance : inconnue';};    
+    // // END: Date de naissance_______________________ 
+    // //_______________________ 
+   } else { echo 'Donnée inconnues';};
     ?>
 </body>
 </html>
